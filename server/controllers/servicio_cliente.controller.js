@@ -54,7 +54,7 @@ serv_clienteCtrl.registrar_servicio_cliente = async (req, res) =>{
             }
          });
          await servicio_cliente.save().then(
-            res.json({
+            res.json({ 
                 'status':'Servicio registrado'
             })
          );
@@ -62,6 +62,17 @@ serv_clienteCtrl.registrar_servicio_cliente = async (req, res) =>{
 
     }
 
+}
+
+
+serv_clienteCtrl.servicios_no_atendidos = async (req,res) => {
+    var query = {}; 
+    var estado = "estado"; 
+    var value = "No atendido";
+    query[estado] = value;
+
+    const servicio_cliente  =  await Servicio_Cliente.find(query);
+    res.json(servicio_cliente); 
 }
 
 module.exports = serv_clienteCtrl;

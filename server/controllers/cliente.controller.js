@@ -47,5 +47,5 @@ clienteCtrl.delete_cliente = async (req,res)=>{
     res.json({status: 'Cliente Eliminado'})
 }
 
-
+    
 module.exports = clienteCtrl;
