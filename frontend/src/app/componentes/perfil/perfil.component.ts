@@ -24,7 +24,7 @@ export class PerfilComponent implements OnInit {
       console.log(this.usuario);      
     },
     err => {
-      console.log(err);
+      console.error(err);
       return false
     });
   }

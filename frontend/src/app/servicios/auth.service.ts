@@ -31,14 +31,16 @@ export class AuthService {
     this.cargarToken(); 
     var header = {
       headers: new HttpHeaders()
-        .set('Authorization',`${this.authToken}`)
+        .set('Authorization',`${this.authToken}`).set('Content-Type','aplication/json')
     }
+    
     return this.http.get('http://localhost:3000/usuarios/perfil',header);
   } 
 
   cargarToken(){
     const token  = localStorage.getItem('id_token');
     this.authToken = token;
+    console.log(this.authToken)
   }
 
   guardarUsuarioData(token,usuario){
