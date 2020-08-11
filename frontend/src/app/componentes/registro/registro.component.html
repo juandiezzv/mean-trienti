@@ -1,11 +1,10 @@
-<br><br> <br><br><br>
+<br><br> <br>
 
 <div class="row" >
     <div class="col-md-6">
         <div class="jumbotron text-center portada" >
             <div style="border: 2px rgb(255, 255, 255) solid;">
                 <br><br>
-                <!-- <img class="logo" src="assets/img/shazam.svg" alt=""> -->
                 <img class="logo" src="assets/img/fav.png" alt="">
                 <h1>Trienti</h1>
                 <p class="lead">Bienvenidos al sistema de registro.</p>
@@ -20,28 +19,29 @@
 
     </div>
     
+
     <div class="col-md-6">
 
         <div class="jumbotron formulario">
-            <h2 class="page-header">Registro de usuario</h2>
+            <h3 class="page-header">Registro de usuario</h3>
                 
             <div class="form">
-                <form >
+                <form (submit)="onRegisterSubmit()">
                     <div class="form-group">
                         <label>Nombre</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" [(ngModel)]="nombre" name="nombre">
                     </div>
                     <div class="form-group">
                         <label>Nombre de Usuario</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" [(ngModel)]="username" name="username">
                     </div>
                     <div class="form-group">
                         <label>Correo</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" [(ngModel)]="correo" name="correo">
                     </div>
                     <div class="form-group">
                         <label>Contraseña</label>
-                        <input type="text" class="form-control">
+                        <input type="text" class="form-control" [(ngModel)]="password" name="password">
                     </div>
                     <input type="submit" class="btn btn-primary" value="Registrar">
                 </form>

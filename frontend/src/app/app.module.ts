@@ -10,6 +10,9 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { DashboardComponent } from './componentes/dashboard/dashboard.component';
+//Servicios
+import { AuthService } from './servicios/auth.service';
+import { AuthGuard } from './guards/auth.guard';
 
 @NgModule({
   declarations: [
@@ -27,7 +30,7 @@ import { DashboardComponent } from './componentes/dashboard/dashboard.component'
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [AuthService,AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

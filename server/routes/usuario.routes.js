@@ -18,11 +18,11 @@ router.post('/registro', (req,res,next) =>{
     Usuario.agregarUsuario(nuevoUsuario, (err, usuario)=>{
         if(err){
             res.json({
-                sucess: false,
+                success: false,
                 msg: 'Fallo al registrar al nuevo usuario'});
         } else {
             res.json({
-                sucess: true,
+                success: true,
                 msg: 'Usuario Registrado'});
         }
     });
@@ -55,7 +55,7 @@ router.post('/autenticacion', (req,res,next) =>{
                     }
                 });
             } else{
-                return res.json({sucess: false, msg: "Contraseña Incorrecta"});
+                return res.json({success: false, msg: "Contraseña Incorrecta"});
             }
         });
     });

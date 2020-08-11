@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
+//Servicios
+import { AuthService } from '../../servicios/auth.service';
+import { Router } from '@angular/router'
+
+
 
 @Component({
   selector: 'app-registro',
@@ -8,12 +13,40 @@ import { Component, OnInit } from '@angular/core';
 export class RegistroComponent implements OnInit {
   nombre: String;
   correo: String;
-  email: String;
+  username: String;
   password: String;
 
-  constructor() { }
+  constructor(
+            private auth: AuthService,
+            private router: Router,
+            private zone: NgZone
+            ) {}
 
   ngOnInit(): void {
   }
 
-}
+  onRegisterSubmit(){
+    var usuario = {
+      nombre: this.nombre,
+      correo: this.correo,
+      username: this.username,
+      password: this.password
+    }
+
+    //Registrar Usuario
+    this.auth.registrarUsuario(usuario).subscribe(data =>{
+      
+        
+        var resultado = JSON.parse(JSON.stringify(data)); 
+        console.log(resultado);
+        console.log(resultado.success);
+        if(resultado.success){
+          console.log('Usuario Registrado');
+          this.router.navigate(['/login']);
+        }else{
+          console.error('Algo ocurrio');}
+
+  } )
+  
+
+}}

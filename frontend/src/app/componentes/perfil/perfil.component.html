@@ -1,1 +1,9 @@
-<p>perfil works!</p>
+<br><br>
+<div *ngIf="usuario" class="jumbotron">
+    <h2 class="page-header">Nombre: {{usuario.nombre}}</h2>
+    <ul class="list-group">
+        <li class="list-group-item">Nombre de Usuario: {{usuario.username}}</li>
+        <li class="list-group-item">Email: {{usuario.correo}}</li>
+
+    </ul>
+</div>

@@ -1,1 +1,50 @@
-<p>login works!</p>
+<br><br> <br>
+
+<div class="row" >
+   
+
+    <div class="col-md-6">
+
+        <div class="jumbotron formulario">
+            <h3 class="page-header">Iniciar Sesión</h3>
+            <br><br><br><br>
+                
+            <div class="form">
+                <form (submit)="onLoginSubmit()">
+                    <div class="form-group">
+                        <label>Nombre de Usuario</label>
+                        <input type="text" class="form-control" [(ngModel)]="username" name="username">
+                    </div>
+                    <div class="form-group">
+                        <label>Contraseña</label>
+                        <input type="text" class="form-control" [(ngModel)]="password" name="password">
+                    </div>
+                    <br>
+                    <input type="submit" class="btn btn-success" value="Iniciar Sesión" >
+                </form>
+            </div>
+        </div>
+        
+    </div>
+
+
+    <div class="col-md-6">
+        <div class="jumbotron text-center portada" >
+            <div style="border: 2px rgb(255, 255, 255) solid;">
+                <br><br>
+                <img class="logo" src="assets/img/fav.png" alt="">
+                <h1>Trienti</h1>
+                <p class="lead">Bienvenidos al sistema de registro.</p>
+                <br><br><br><br>
+                <div>
+                    <p>¿No te has registrado?</p>
+                    <a class="btn btn-primary ml-1" [routerLink]="['/registro']" > Registrate</a>
+                </div>
+                <br>
+            </div>
+        </div>
+
+    </div>
+    
+</div>
+

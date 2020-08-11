@@ -6,12 +6,14 @@ import { HomeComponent } from './componentes/home/home.component';
 import { DashboardComponent } from './componentes/dashboard/dashboard.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 
+import { AuthGuard } from './guards/auth.guard';
+
 const routes: Routes = [
-  {path: '',component: HomeComponent},
+  {path: '', component: HomeComponent},
   {path: 'registro', component: RegistroComponent},
-  {path: 'login',component: LoginComponent},
-  {path: 'dashboard',component: DashboardComponent},
-  {path: 'perfil',component: PerfilComponent}
+  {path: 'login' ,component: LoginComponent},
+  {path: 'dashboard',component: DashboardComponent,canActivate:[AuthGuard]},
+  {path: 'perfil',component: PerfilComponent,canActivate:[AuthGuard]}
 ];
 
 @NgModule({

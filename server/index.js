@@ -7,13 +7,16 @@ const morgan = require('morgan');
 const app = express();
 const { mongoose } = require('./config/database')
 const path = require('path');
-
+const cors = require('cors')
 
 
 // Setting 
 app.set('port', process.env.PORT || 3000);
 // Middleware
 app.use(morgan('dev'));
+
+app.use(cors());
+
 //para poder usar los req.body
 app.use(express.json());
 
@@ -24,7 +27,11 @@ require('./config/passport')(passport);
 
 
 //Set Static Folder
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, '../public')));
+
+app.get('*', (req,res) =>{
+    res.sendFile(path.join(__dirname,'../public/index.html'))
+});
 
 //Routes
 app.use('/api/clientes',require('./routes/cliente.routes'));
