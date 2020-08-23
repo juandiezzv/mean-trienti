@@ -12,7 +12,9 @@ import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { DashboardComponent } from './componentes/dashboard/dashboard.component';
 //Servicios
 import { AuthService } from './servicios/auth.service';
+import { ClienteService } from './servicios/cliente.service';
 import { AuthGuard } from './guards/auth.guard';
+import { RegistroAtencionComponent } from './componentes/registro-atencion/registro-atencion.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,8 @@ import { AuthGuard } from './guards/auth.guard';
     RegistroComponent,
     HomeComponent,
     PerfilComponent,
-    DashboardComponent
+    DashboardComponent,
+    RegistroAtencionComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,7 @@ import { AuthGuard } from './guards/auth.guard';
     HttpClientModule,
     FormsModule
   ],
-  providers: [AuthService,AuthGuard],
+  providers: [AuthService,AuthGuard,ClienteService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

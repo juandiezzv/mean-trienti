@@ -35,6 +35,7 @@ clienteCtrl.edit_cliente = async (req, res )=> {
         dni: req.body.dni,
         nombre: req.body.nombre,
         apellido: req.body.apellido,
+        telefono: req.body.telefono,
         prioridad: req.body.prioridad
     }
     await Cliente.findByIdAndUpdate(id, {$set: cliente}, {new: true});

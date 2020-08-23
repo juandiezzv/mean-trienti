@@ -16,23 +16,23 @@
 <div class="row ">
     <div class="col-md-6"> 
         <div class="jumbotron">
-            <h5 class="text-center">Servicios</h5>
+            <h3 class="text-center">Servicios</h3>
             <br>
-            <div class="accordion" id="accordionTarjetas">
+            <div class="accordion " id="accordionServicios">
                
                 <!--  -->
                 <div class="card">
-                    <div class="card-header" id="headingTwo">
+                    <div class="card-header" id="headingOne">
                         <h5 class="mb-0" style="display: flex; justify-content: space-between;">
-                            <button class="btn btn-link" onclick="this.blur();" type="button" data-toggle="collapse" data-target="#collapseVISA" aria-expanded="true" aria-controls="collapseVISA">
+                            <button class="btn btn-link" onclick="this.blur();" type="button" data-toggle="collapse" data-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
                                 Registrar Nueva Atención
                             </button>
                             
-                            <button class="btn btn-success">Acceder</button>
+                            <button class="btn btn-success" [routerLink]="['/dashboard/registroAtencion']">Acceder</button>
                         </h5>
                     </div>
 
-                    <div id="collapseVISA" class="collapse fade" aria-labelledby="headingTwo" data-parent="#accordionTarjetas">
+                    <div id="collapse1" class="collapse fade" aria-labelledby="headingOne" data-parent="#accordionServicios">
                         <div class="card-body">
                             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Fuga id sed nemo nesciunt quas quo ducimus at eum? Quidem harum eveniet rerum dolores velit nam possimus soluta dolor sit tempora?
                         </div>
@@ -40,9 +40,9 @@
                 </div>
                 <!--  -->
                 <div class="card">
-                    <div class="card-header" id="headingThree">
+                    <div class="card-header" id="headingTwo">
                         <h5 class="mb-0" style="display: flex; justify-content: space-between;">
-                            <button class="btn btn-link" onclick="this.blur();" type="button" data-toggle="collapse" data-target="#collapseMASTER" aria-expanded="true" aria-controls="collapseMASTER">
+                            <button class="btn btn-link" onclick="this.blur();" type="button" data-toggle="collapse" data-target="#collapse2" aria-expanded="true" aria-controls="collapse2">
                                 Consultar Servicios
                             </button>
                             
@@ -50,7 +50,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseMASTER" class="collapse fade" aria-labelledby="headingThree" data-parent="#accordionTarjetas">
+                    <div id="collapse2" class="collapse fade" aria-labelledby="headingTwo" data-parent="#accordionServicios">
                         <div class="card-body">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Exercitationem, delectus facere. Aspernatur, libero aut molestiae debitis incidunt nihil dolorum dolore! Eum fuga corrupti id quidem animi accusamus accusantium odio consequuntur!
                         </div>
@@ -62,27 +62,25 @@
                 
             </div>
 
-
-
-
         </div>
     </div>
+
     <div class="col-md-6">
         <div class="jumbotron">
-            <h5 class="text-center">Reclamos</h5>
+            <h3 class="text-center">Reclamos</h3>
             <br>
-            <div class="accordion" id="accordionTarjetas">
+            <div class="accordion" id="accordionReclamos">
                 <div class="card">
-                    <div class="card-header" id="headingOne">
+                    <div class="card-header" id="headingThree">
                         <h5 class="mb-0" style="display: flex; justify-content: space-between;">
-                            <button class="btn btn-link" onclick="this.blur();" type="button" data-toggle="collapse" data-target="#collapseBasica" aria-expanded="true" aria-controls="collapseBasica">
+                            <button class="btn btn-link" onclick="this.blur();" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
                                 Registrar Nuevo Reclamo
                             </button>
                             <button class="btn btn-success">Acceder</button>
                         </h5>
                     </div>
 
-                    <div id="collapseBasica" class="collapse fade show" aria-labelledby="headingOne" data-parent="#accordionTarjetas">
+                    <div id="collapse3" class="collapse fade show" aria-labelledby="headingThree" data-parent="#accordionReclamos">
                         <div class="card-body">
                             Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum atque nulla provident rem facilis modi inventore fuga, molestias, omnis voluptatibus soluta impedit non. Nesciunt molestiae deserunt voluptatibus quis officia ullam!
                         </div>
@@ -90,9 +88,9 @@
                 </div>
                 <!--  -->
                 <div class="card">
-                    <div class="card-header" id="headingTwo">
+                    <div class="card-header" id="headingFour">
                         <h5 class="mb-0" style="display: flex; justify-content: space-between;">
-                            <button class="btn btn-link" onclick="this.blur();" type="button" data-toggle="collapse" data-target="#collapseVISA" aria-expanded="true" aria-controls="collapseVISA">
+                            <button class="btn btn-link" onclick="this.blur();" type="button" data-toggle="collapse" data-target="#collapse4" aria-expanded="true" aria-controls="collapse4">
                                 Consultar Reclamos
                             </button>
                             
@@ -100,7 +98,7 @@
                         </h5>
                     </div>
 
-                    <div id="collapseVISA" class="collapse fade" aria-labelledby="headingTwo" data-parent="#accordionTarjetas">
+                    <div id="collapse4" class="collapse fade" aria-labelledby="headingFour" data-parent="#accordionReclamos">
                         <div class="card-body">
                             Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa ab, aliquid quia consequatur non, temporibus minus praesentium quisquam commodi maiores, animi tempora provident inventore ducimus illum! Earum rerum hic quas!
                         </div>

@@ -3,9 +3,11 @@ const router = express.Router();
 
 //Controladores
 const clienteCtrl = require('../controllers/cliente.controller');
+const passport = require('passport');
+const jwt = require('jsonwebtoken');
 
 //Rutas
-router.get('/',clienteCtrl.get_clientes);
+router.get('/',passport.authenticate('jwt',{session:false}),clienteCtrl.get_clientes);
 router.get('/:id',clienteCtrl.get_cliente);
 router.post('/',clienteCtrl.create_cliente);
 router.put('/:id',clienteCtrl.edit_cliente);
