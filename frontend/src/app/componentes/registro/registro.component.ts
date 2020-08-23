@@ -1,7 +1,9 @@
 import { Component, OnInit, NgZone } from '@angular/core';
+
 //Servicios
 import { AuthService } from '../../servicios/auth.service';
 import { Router } from '@angular/router'
+import { FormGroup,FormControl,Validators} from '@angular/forms';
 
 
 
@@ -10,7 +12,18 @@ import { Router } from '@angular/router'
   templateUrl: './registro.component.html',
   styleUrls: ['./registro.component.sass']
 })
+
+
 export class RegistroComponent implements OnInit {
+
+  formRegistro = new FormGroup({
+    nombre : new FormControl('',Validators.required),
+    nombreUsuario : new FormControl('',Validators.required),
+    correo: new FormControl('',[Validators.required,Validators.email]),
+    password : new FormControl('',Validators.required),
+  })
+
+
   nombre: String;
   correo: String;
   username: String;
