@@ -22,7 +22,7 @@ export class RegistroComponent implements OnInit {
     correo: new FormControl('',[Validators.required,Validators.email]),
     password : new FormControl('',Validators.required),
   })
-
+ 
 
   nombre: String;
   correo: String;
@@ -36,6 +36,7 @@ export class RegistroComponent implements OnInit {
             ) {}
 
   ngOnInit(): void {
+   
   }
 
   onRegisterSubmit(){
@@ -45,19 +46,31 @@ export class RegistroComponent implements OnInit {
       username: this.username,
       password: this.password
     }
+    var mensaje=document.getElementById("mensajeDuplicado");  
+
+    var inputs = document.querySelectorAll("input");     
+    inputs.forEach(input => input.addEventListener('click',function(){
+      mensaje.querySelector('label').innerHTML = "";
+      mensaje.style.display = 'none';   
+    })); 
 
     //Registrar Usuario
     this.auth.registrarUsuario(usuario).subscribe(data =>{
-      
         
         var resultado = JSON.parse(JSON.stringify(data)); 
-        console.log(resultado);
-        console.log(resultado.success);
+
         if(resultado.success){
           console.log('Usuario Registrado');
           this.router.navigate(['/login']);
-        }else{
-          console.error('Algo ocurrio');}
+
+        }else{              
+          this.router.navigate(['/registro']);
+          mensaje.style.display = 'block';
+          var inputs = document.querySelectorAll("input");
+          inputs.forEach(input => input.value = '');      
+          document.querySelector("form").reset();   
+          mensaje.querySelector('label').innerHTML = `El usuario ${resultado.nombre} ya esta registrado`;
+        }
 
   } )
   

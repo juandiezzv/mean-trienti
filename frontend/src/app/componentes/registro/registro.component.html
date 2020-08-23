@@ -26,7 +26,7 @@
             <h3 class="page-header h4">Registro de usuario</h3>
                 
             <div class="form">
-                <form class="pb-5 mb-3" (submit)="onRegisterSubmit()" name="formRegistro" [formGroup]="formRegistro">
+                <form id="formRegistro" class="pb-5 mb-3" (submit)="onRegisterSubmit()" name="formRegistro" [formGroup]="formRegistro">
                     <div class="form-group">
                         <label>Nombre</label>
                         <input type="text" class="form-control" [(ngModel)]="nombre" name="nombre" formControlName="nombre"
@@ -62,7 +62,14 @@
                     </div>
                     
                     <div class="no-gutters">
-                        <input type="submit" class="btn btn-primary" [disabled]="!formRegistro.valid" value="Registrar">
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary" [disabled]="!formRegistro.valid" >Registrar</button>
+                            </div>
+                            <div class="col-12 mt-2 invalid-feedback" style="display: none;" id="mensajeDuplicado" >
+                                <label>El usuario ya esta registrado</label>
+                            </div>
+                        </div>                    
                     </div>
                     
                 </form>
