@@ -64,7 +64,6 @@ export class RegistroComponent implements OnInit {
           this.router.navigate(['/login']);
 
         }else{              
-          this.router.navigate(['/registro']);
           mensaje.style.display = 'block';
           var inputs = document.querySelectorAll("input");
           inputs.forEach(input => input.value = '');      
