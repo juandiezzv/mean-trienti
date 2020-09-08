@@ -10,17 +10,34 @@
             <br><br><br><br>
                 
             <div class="form">
-                <form (submit)="onLoginSubmit()">
+                <form (submit)="onLoginSubmit()" name="formLogin" [formGroup]="formLogin">
                     <div class="form-group">
                         <label>Nombre de Usuario</label>
-                        <input type="text" class="form-control" [(ngModel)]="username" name="username">
+                        <input type="text" class="form-control" [(ngModel)]="username" name="username" formControlName="username"
+                        [ngClass]="{'is-invalid':formLogin.get('username').touched && formLogin.get('username').invalid}">
+                        <div class="invalid-feedback">
+                           <div class="mensaje-error m-0">El nombre de usuario es requerido</div>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label>Contraseña</label>
-                        <input type="text" class="form-control" [(ngModel)]="password" name="password">
+                        <input type="text" class="form-control" [(ngModel)]="password" name="password" formControlName="password"
+                        [ngClass]="{'is-invalid':formLogin.get('password').touched && formLogin.get('password').invalid}">
+                        <div class="invalid-feedback">
+                           <div class="mensaje-error m-0">La contraseña es requerida</div>
+                        </div>
                     </div>
                     <br>
-                    <input type="submit" class="btn btn-success" value="Iniciar Sesión" >
+                    <div class="no-gutters">
+                        <div class="row">
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary" [disabled]="!formLogin.valid" >Iniciar Sesión</button>
+                            </div>
+                            <div class="col-12 mt-2 invalid-feedback" style="display: none;" id="mensajeNoEncontrado" >
+                                <label>El usuario ya esta registrado</label>
+                            </div>
+                        </div>                    
+                    </div>
                 </form>
             </div>
         </div>

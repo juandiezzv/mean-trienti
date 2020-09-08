@@ -10,6 +10,8 @@ import { RegistroComponent } from './componentes/registro/registro.component';
 import { HomeComponent } from './componentes/home/home.component';
 import { PerfilComponent } from './componentes/perfil/perfil.component';
 import { DashboardComponent } from './componentes/dashboard/dashboard.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 //Servicios
 import { AuthService } from './servicios/auth.service';
 import { ClienteService } from './servicios/cliente.service';
@@ -31,7 +33,8 @@ import { RegistroAtencionComponent } from './componentes/registro-atencion/regis
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [AuthService,AuthGuard,ClienteService],
   bootstrap: [AppComponent]

@@ -19,11 +19,15 @@ router.post('/registro', (req,res,next) =>{
         if(err){
             res.json({
                 success: false,
-                msg: 'Fallo al registrar al nuevo usuario'});
+                msg: 'Fallo al registrar al nuevo usuario',
+                nombre:nuevoUsuario.username
+            });
         } else {
             res.json({
                 success: true,
-                msg: 'Usuario Registrado'});
+                msg: 'Usuario Registrado',
+                
+            });
         }
     });
 });

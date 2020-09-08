@@ -1,15 +1,16 @@
 const mongoose = require('mongoose');
 const bcrypt = require('bcryptjs');
+const uniqueValidator=require('mongoose-unique-validator');
 const {Schema} = mongoose; 
 
 var UsuarioSchema = new Schema({
     nombre: {type: String},
     correo: {type: String, required: true},
-    username: {type: String, required: true},
+    username: {unique : true,type: String, required: true},
     password: {type: String, required: true}
 
 });
-
+UsuarioSchema.plugin(uniqueValidator,{message:'{PATH} debe de ser unico'})
 const Usuario = module.exports = mongoose.model('Usuario', UsuarioSchema);
 
 module.exports.get_UsuarioById = function(id, callback){
