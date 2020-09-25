@@ -10,7 +10,7 @@ export class AuthService {
   authToken: any;
   usuario: any; 
 
-  constructor(private http:HttpClient,) {
+  constructor(private http:HttpClient) {
   
    }
 

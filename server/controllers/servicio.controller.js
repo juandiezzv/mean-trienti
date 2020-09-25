@@ -32,7 +32,7 @@ servicioCtrl.get_filtro_servicios = async (req,res) =>{
     //Consulta para devolver los servicios segun la categoria
     var query = {};
     var tipo_serv = "tipo_servicio"
-    var value = req.body.tipo_servicio;
+    var value = req.params.tipo_servicio;
     query[tipo_serv] = value; 
 
     var serviciosFiltrados = await Servicio.find(query);

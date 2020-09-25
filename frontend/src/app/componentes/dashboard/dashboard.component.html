@@ -16,7 +16,11 @@
 <div class="row ">
     <div class="col-md-6"> 
         <div class="jumbotron">
-            <h3 class="text-center">Servicios</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li><h3 class="text-center breadcrumb-item active">Servicios</h3></li>
+                </ol>
+            </nav>
             <br>
             <div class="accordion " id="accordionServicios">
                
@@ -67,7 +71,11 @@
 
     <div class="col-md-6">
         <div class="jumbotron">
-            <h3 class="text-center">Reclamos</h3>
+            <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li><h3 class="text-center breadcrumb-item active">Reclamos</h3></li>
+                </ol>
+            </nav>
             <br>
             <div class="accordion" id="accordionReclamos">
                 <div class="card">
@@ -76,7 +84,7 @@
                             <button class="btn btn-link" onclick="this.blur();" type="button" data-toggle="collapse" data-target="#collapse3" aria-expanded="true" aria-controls="collapse3">
                                 Registrar Nuevo Reclamo
                             </button>
-                            <button class="btn btn-success">Acceder</button>
+                            <button class="btn btn-success" [routerLink]="['/dashboard/registroReclamo']">Acceder</button>
                         </h5>
                     </div>
 

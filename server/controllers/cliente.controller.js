@@ -36,7 +36,7 @@ clienteCtrl.edit_cliente = async (req, res )=> {
         nombre: req.body.nombre,
         apellido: req.body.apellido,
         telefono: req.body.telefono,
-        prioridad: req.body.prioridad
+        tipo_cliente: req.body.tipo_cliente
     }
     await Cliente.findByIdAndUpdate(id, {$set: cliente}, {new: true});
     res.json({status: 'Cliente Actualizado'});

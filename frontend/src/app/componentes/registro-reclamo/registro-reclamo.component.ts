@@ -1,20 +1,19 @@
 import { Component, OnInit } from '@angular/core';
-import { ClienteService } from 'src/app/servicios/cliente.service';
-import { Cliente } from 'src/app/models/cliente';
-import { Servicio } from 'src/app/models/servicio';
-import { Direccion } from 'src/app/models/direccion';
 import { Atencion } from 'src/app/models/atencion';
-import { ServicioService } from 'src/app/servicios/servicio.service';
+import { Cliente } from 'src/app/models/cliente';
+import { Direccion } from 'src/app/models/direccion';
+import { Servicio } from 'src/app/models/servicio';
 import { AtencionService } from 'src/app/servicios/atencion.service';
-
+import { ClienteService } from 'src/app/servicios/cliente.service';
+import { ServicioService } from 'src/app/servicios/servicio.service';
 
 @Component({
-  selector: 'app-registro-atencion',
-  templateUrl: './registro-atencion.component.html',
-  styleUrls: ['./registro-atencion.component.sass']
+  selector: 'app-registro-reclamo',
+  templateUrl: './registro-reclamo.component.html',
+  styleUrls: ['./registro-reclamo.component.sass']
 })
-export class RegistroAtencionComponent implements OnInit {
-  
+export class RegistroReclamoComponent implements OnInit {
+
   //Para clientes ngModel
   _id:String;
   dni: String;
@@ -49,6 +48,11 @@ export class RegistroAtencionComponent implements OnInit {
 
 
   clienteExiste: boolean = true;
+
+
+  //Comboboxes
+      prioridades = ["Alta","Media","Baja"];
+      prioridadSeleccionada = null;
 
 
   constructor(private clienteService:ClienteService,
@@ -133,6 +137,7 @@ export class RegistroAtencionComponent implements OnInit {
     this.precio_referencial = this.servicioSeleccionado.precio_referencial;
     this.servicio_id = this.servicioSeleccionado._id;
     this.detallesServicio = this.servicioSeleccionado.detalles;
+    this.nombreServicio = this.servicioSeleccionado.nombre;
   }
 
   registrarAtencion(){

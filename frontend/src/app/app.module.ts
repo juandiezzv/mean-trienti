@@ -15,9 +15,11 @@ import { ReactiveFormsModule } from '@angular/forms';
 //Servicios
 import { AuthService } from './servicios/auth.service';
 import { ClienteService } from './servicios/cliente.service';
+import { AtencionService } from './servicios/atencion.service';
+import { ServicioService } from './servicios/servicio.service'
 import { AuthGuard } from './guards/auth.guard';
 import { RegistroAtencionComponent } from './componentes/registro-atencion/registro-atencion.component';
-
+import { RegistroReclamoComponent } from './componentes/registro-reclamo/registro-reclamo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -27,7 +29,8 @@ import { RegistroAtencionComponent } from './componentes/registro-atencion/regis
     HomeComponent,
     PerfilComponent,
     DashboardComponent,
-    RegistroAtencionComponent
+    RegistroAtencionComponent,
+    RegistroReclamoComponent
   ],
   imports: [
     BrowserModule,
@@ -36,7 +39,7 @@ import { RegistroAtencionComponent } from './componentes/registro-atencion/regis
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [AuthService,AuthGuard,ClienteService],
+  providers: [AuthService,AuthGuard,ClienteService,ServicioService, AtencionService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

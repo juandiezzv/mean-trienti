@@ -52,9 +52,9 @@ app.use(express.static(path.join(__dirname,'../public')));
 app.use('/api/clientes',require('./routes/cliente.routes'));
 app.use('/api/servicios',require('./routes/servicio.routes'));
 app.use('/api/operadores',require('./routes/operador.routes'));
-app.use('/api/servicios_cliente',require('./routes/servicio_cliente.routes'));
-app.use('/api/reclamos_cliente',require('./routes/reclamo_cliente.routes'));
 app.use('/usuarios',require('./routes/usuario.routes'));
+//nuevo router
+app.use('/api/atenciones',require('./routes/atencion.routes'));
 
 
 

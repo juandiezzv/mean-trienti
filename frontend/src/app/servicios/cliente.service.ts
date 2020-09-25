@@ -21,7 +21,11 @@ export class ClienteService {
   }
 
   getClienteByDNI(dni){
-    return this.http.get('http://localhost:3000/api/clientes/dni/'+dni)
+    return this.http.get('http://localhost:3000/api/clientes/dni/'+dni);
+  }
+
+  postCliente(cliente){
+    return this.http.post('http://localhost:3000/api/clientes/', cliente)
   }
 
 }

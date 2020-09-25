@@ -8,6 +8,7 @@ import { PerfilComponent } from './componentes/perfil/perfil.component';
 
 import { AuthGuard } from './guards/auth.guard';
 import { RegistroAtencionComponent } from './componentes/registro-atencion/registro-atencion.component';
+import { RegistroReclamoComponent } from './componentes/registro-reclamo/registro-reclamo.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'login' ,component: LoginComponent},
   {path: 'dashboard',component: DashboardComponent,canActivate:[AuthGuard]},
   {path: 'dashboard/registroAtencion', component: RegistroAtencionComponent,canActivate:[AuthGuard]},
+  {path: 'dashboard/registroReclamo', component: RegistroReclamoComponent,canActivate:[AuthGuard]},
   {path: 'perfil',component: PerfilComponent,canActivate:[AuthGuard]},
   {path: '**', redirectTo: ''}
 ];
