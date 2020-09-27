@@ -13,5 +13,10 @@ export class AtencionService {
     return this.http.post('http://localhost:3000/api/atenciones/servicio',atencion);
   }
 
+  registrarReclamoCliente(reclamo: Atencion){
+    return this.http.post('http://localhost:3000/api/atenciones/reclamo',reclamo);
+
+  }
+
 }
 

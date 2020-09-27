@@ -20,6 +20,9 @@ import { ServicioService } from './servicios/servicio.service'
 import { AuthGuard } from './guards/auth.guard';
 import { RegistroAtencionComponent } from './componentes/registro-atencion/registro-atencion.component';
 import { RegistroReclamoComponent } from './componentes/registro-reclamo/registro-reclamo.component';
+import { ConsultarServiciosComponent} from './componentes/consultar-servicios/consultar-servicios.component';
+import { ConsultarReclamosComponent } from './componentes/consultar-reclamos/consultar-reclamos.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,7 +33,9 @@ import { RegistroReclamoComponent } from './componentes/registro-reclamo/registr
     PerfilComponent,
     DashboardComponent,
     RegistroAtencionComponent,
-    RegistroReclamoComponent
+    RegistroReclamoComponent,
+    ConsultarServiciosComponent,
+    ConsultarReclamosComponent
   ],
   imports: [
     BrowserModule,

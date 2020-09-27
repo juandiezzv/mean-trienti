@@ -7,8 +7,9 @@
         <h1>Trienti</h1>
         <p class="lead">Bienvenido al sistema de atención de pedidos y reclamos</p>
         <div>
-            <a class="btn btn-primary" [routerLink]="['/registro']">Registro</a> 
-            <a class="btn btn-success ml-1" [routerLink]="['/login']" > Inicia Sesión</a>
+            <a *ngIf="!auth.loggedIn()" class="btn btn-primary" [routerLink]="['/registro']">Registro</a> 
+            <a *ngIf="!auth.loggedIn()" class="btn btn-success ml-1" [routerLink]="['/login']" > Inicia Sesión</a>
+            <a *ngIf="auth.loggedIn()" class="btn btn-success ml-1" [routerLink]="['/dashboard']" > Ir al DashBoard</a>
         </div>
         <br>
     </div>

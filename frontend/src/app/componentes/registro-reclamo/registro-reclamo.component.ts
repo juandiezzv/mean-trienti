@@ -3,7 +3,9 @@ import { Atencion } from 'src/app/models/atencion';
 import { Cliente } from 'src/app/models/cliente';
 import { Direccion } from 'src/app/models/direccion';
 import { Servicio } from 'src/app/models/servicio';
+import { Usuario } from 'src/app/models/usuario';
 import { AtencionService } from 'src/app/servicios/atencion.service';
+import { AuthService } from 'src/app/servicios/auth.service';
 import { ClienteService } from 'src/app/servicios/cliente.service';
 import { ServicioService } from 'src/app/servicios/servicio.service';
 
@@ -49,6 +51,11 @@ export class RegistroReclamoComponent implements OnInit {
 
   clienteExiste: boolean = true;
 
+  descripcionReclamo:String;
+
+  
+  usuario = new Usuario(); 
+
 
   //Comboboxes
       prioridades = ["Alta","Media","Baja"];
@@ -57,9 +64,21 @@ export class RegistroReclamoComponent implements OnInit {
 
   constructor(private clienteService:ClienteService,
               private servicioService:ServicioService,
-              private atencionService:AtencionService) { }
+              private atencionService:AtencionService,
+              private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.auth.getPerfil()
+    .subscribe(perfil => {
+      
+      var resultado = JSON.parse(JSON.stringify(perfil)); 
+      this.usuario = resultado.usuario;
+    },
+    err => {
+      console.error(err);
+      return false
+    });
+    
     this.listaTiposServicios();
     
   }
@@ -140,41 +159,30 @@ export class RegistroReclamoComponent implements OnInit {
     this.nombreServicio = this.servicioSeleccionado.nombre;
   }
 
+
   registrarAtencion(){
 
-    let atencion_serv = {
+    let reclamo_serv = {
       servicio_id : this.servicio_id,
-      descripcion: this.detallesServicio,
-      precio_servicio : this.precio_referencial,
-      usuario_id: "",
-      fecha_atencion: "",
-      duracion_servicio: ""
+      descripcion: this.descripcionReclamo,
+      usuario_id:  this.usuario.username,
+      fecha_atencion: new Date(),
+      prioridad: this.prioridadSeleccionada,
+      estado: "Sin atender"
     }
   
     let atencion = new Atencion();
 
     atencion.cliente_dni = this.dni;
-    atencion.atencion_servicio = atencion_serv;
+    atencion.atencion_reclamo = reclamo_serv;
 
-    console.log(atencion);
 
-    this.atencionService.registrarAtencionCliente(atencion).subscribe((res)=>{
+    this.atencionService.registrarReclamoCliente(atencion).subscribe((res)=>{
 
 
       let estado = JSON.parse(JSON.stringify(res));
 
-      if(estado.status == "Este cliente ya tiene un registro"){
-        console.log('Este cliente ya tiene un historial')
-      } else if (estado.cliente == "Cliente encontrado"){
-        console.log('Este cliente no tiene un historial pero ha sido encontrado en la coleccion de clientes')
-      } else {
-        console.log('Este cliente no tiene historial y tampoco ha sido encontrado en la coleccion clientes, se procedera a registrarlo')
-        this.crearClienteNoExistente();
-      }
-      
-      
-      
-
+        console.log(estado);
 
         this._id = "";
         this.dni = "";
@@ -187,6 +195,8 @@ export class RegistroReclamoComponent implements OnInit {
         this.distrito = "";
         this.calle = "";
         this.numero = "";
+        this.descripcionReclamo= "",
+        this.prioridadSeleccionada =""
 
     });
     this.clienteExiste = true; 

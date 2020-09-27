@@ -3,9 +3,11 @@ import { ClienteService } from 'src/app/servicios/cliente.service';
 import { Cliente } from 'src/app/models/cliente';
 import { Servicio } from 'src/app/models/servicio';
 import { Direccion } from 'src/app/models/direccion';
+import { Usuario } from 'src/app/models/usuario';
 import { Atencion } from 'src/app/models/atencion';
 import { ServicioService } from 'src/app/servicios/servicio.service';
 import { AtencionService } from 'src/app/servicios/atencion.service';
+import { AuthService } from 'src/app/servicios/auth.service';
 
 
 @Component({
@@ -15,6 +17,10 @@ import { AtencionService } from 'src/app/servicios/atencion.service';
 })
 export class RegistroAtencionComponent implements OnInit {
   
+  //Para el usuario
+
+
+
   //Para clientes ngModel
   _id:String;
   dni: String;
@@ -37,6 +43,7 @@ export class RegistroAtencionComponent implements OnInit {
   tipo_servicio: String;
   detallesServicio:String;
   precio_referencial:Number;
+  duracionServicio:String;
 
   servicio = new Servicio();
 
@@ -51,12 +58,27 @@ export class RegistroAtencionComponent implements OnInit {
   clienteExiste: boolean = true;
 
 
+  usuario = new Usuario(); 
+
   constructor(private clienteService:ClienteService,
               private servicioService:ServicioService,
-              private atencionService:AtencionService) { }
+              private atencionService:AtencionService,
+              private auth: AuthService) { }
 
   ngOnInit(): void {
+    this.auth.getPerfil()
+    .subscribe(perfil => {
+      
+      var resultado = JSON.parse(JSON.stringify(perfil)); 
+      this.usuario = resultado.usuario;
+    },
+    err => {
+      console.error(err);
+      return false
+    });
+
     this.listaTiposServicios();
+    console.log(this.usuario.username);
     
   }
 
@@ -141,9 +163,9 @@ export class RegistroAtencionComponent implements OnInit {
       servicio_id : this.servicio_id,
       descripcion: this.detallesServicio,
       precio_servicio : this.precio_referencial,
-      usuario_id: "",
-      fecha_atencion: "",
-      duracion_servicio: ""
+      usuario_id: this.usuario.username,
+      fecha_atencion: new Date(),
+      duracion_servicio: this.duracionServicio
     }
   
     let atencion = new Atencion();

@@ -21,7 +21,7 @@
                     </div>
                     <div class="form-group">
                         <label>Contraseña</label>
-                        <input type="text" class="form-control" [(ngModel)]="password" name="password" formControlName="password"
+                        <input type="password" class="form-control" [(ngModel)]="password" name="password" formControlName="password"
                         [ngClass]="{'is-invalid':formLogin.get('password').touched && formLogin.get('password').invalid}">
                         <div class="invalid-feedback">
                            <div class="mensaje-error m-0">La contraseña es requerida</div>

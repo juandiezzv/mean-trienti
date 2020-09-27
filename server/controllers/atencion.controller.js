@@ -28,17 +28,16 @@ atencionCtrl.registrar_atencion_cliente = async (req, res) =>{
             "status":"Este cliente ya tiene un registro"
         });
 
+        console.log(req.body)
         const atencion_servicio = {
                                     servicio_id: req.body.atencion_servicio.servicio_id,
                                     descripcion: req.body.atencion_servicio.descripcion, 
                                     fecha_atencion: req.body.atencion_servicio.fecha_atencion, 
                                     precio_servicio: req.body.atencion_servicio.precio_servicio,
                                     duracion_servicio: req.body.atencion_servicio.duracion_servicio,
-                                    usuario_id:  req.body.usuario_id 
+                                    usuario_id:  req.body.atencion_servicio.usuario_id 
 
         }
-
-        console.log(atencion_servicio);
 
         Atencion.findOneAndUpdate(
             {cliente_dni: atenciones.cliente_dni},
@@ -75,7 +74,7 @@ atencionCtrl.registrar_atencion_cliente = async (req, res) =>{
                             fecha_atencion: req.body.atencion_servicio.fecha_atencion, 
                             precio_servicio: req.body.atencion_servicio.precio_servicio,
                             duracion_servicio: req.body.atencion_servicio.duracion_servicio,
-                            usuario_id:  req.body.usuario_id 
+                            usuario_id:  req.body.atencion_servicio.usuario_id 
 
                 }
         }
@@ -120,6 +119,8 @@ atencionCtrl.registrar_reclamo_cliente = async (req, res) =>{
     var value = req.body.cliente_dni;
     query[cliente_dni] = value;
 
+    console.log(req.body);
+
     //Verifica si este cliente ya presenta un historial de pedidos
 
     var atenciones = await Atencion.findOne(query);
@@ -132,12 +133,12 @@ atencionCtrl.registrar_reclamo_cliente = async (req, res) =>{
         });
 
         const atencion_reclamo = {
-                                    servicio_id: req.body.atencion_.servicio_id,
+                                    servicio_id: req.body.atencion_reclamo.servicio_id,
                                     descripcion: req.body.atencion_reclamo.descripcion, 
                                     fecha_atencion: req.body.atencion_reclamo.fecha_atencion, 
                                     prioridad: req.body.atencion_reclamo.prioridad,
                                     estado: req.body.atencion_reclamo.estado,
-                                    usuario_id:  req.body.usuario_id 
+                                    usuario_id:  req.body.atencion_reclamo.usuario_id 
 
         }
 
@@ -178,7 +179,7 @@ atencionCtrl.registrar_reclamo_cliente = async (req, res) =>{
                             fecha_atencion: req.body.atencion_reclamo.fecha_atencion, 
                             prioridad: req.body.atencion_reclamo.prioridad,
                             estado: req.body.atencion_reclamo.estado,
-                            usuario_id:  req.body.usuario_id 
+                            usuario_id:  req.body.atencion_reclamo.usuario_id 
 
                 }
         }

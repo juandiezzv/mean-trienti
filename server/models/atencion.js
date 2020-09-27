@@ -16,7 +16,7 @@ var Atencion_Reclamo = new Schema({
     servicio_id: {type: String},
     descripcion: {type: String},
     fecha_atencion: {type: String},
-    prioridad: {type: Number},
+    prioridad: {type: String},
     estado: {type: String},
     usuario_id: {type: String}
 })

@@ -51,9 +51,7 @@ app.use(express.static(path.join(__dirname,'../public')));
 //Routes
 app.use('/api/clientes',require('./routes/cliente.routes'));
 app.use('/api/servicios',require('./routes/servicio.routes'));
-app.use('/api/operadores',require('./routes/operador.routes'));
 app.use('/usuarios',require('./routes/usuario.routes'));
-//nuevo router
 app.use('/api/atenciones',require('./routes/atencion.routes'));
 
 
